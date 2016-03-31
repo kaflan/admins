@@ -1,0 +1,53 @@
+<div class="Check-list section">
+  <h1>Чеклисты</h1>
+  <div class="line-left"><a ng-click="self.createContekst(id, name , active, token, org)" class="admin-link">Создать</a>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="" /><span>Показать неактивные.</span>
+      </label>
+    </div>
+  </div>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Наименование</th>
+        <th>Активен</th>
+        <th>Редактировать</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in contecst">
+        <td>{{item.name}}</td>
+        <td>
+          <input type="checkbox" value="" ng-model="item.active">
+        </td>
+        <td> <a class="admin-link" ng-click="self.toggleModal(item.id , item.name , item.active)">Редактировать</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <check-list-modal show='self.modalShown'>
+    <div class="Check-list-edit section">
+      <h1>Редактирование чек листа</h1>
+      <form  role="form" class="form-horizontal">
+        <div class="form-group">
+          <label for="" class="col-sm-2 control-label">Наименование</label>
+          <div class="col-sm-10">
+            <input id="inputEmail3" type=""  placeholder="{{self.name}}" class="form-control" ng-model="self.name" />
+          </div>
+        </div>
+        <div class="line-right">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="" /><span>Активны</span>
+            </label>
+          </div>
+        </div>
+        <div class="line-right m20_0">
+          <button type="button" class="btn btn-default" ng-click="self.toggleModal()">Отменить </button>
+          <button type="button" class="btn btn-default" ng-click="self.changeContext(self.id, self.name, self.active,token, org)">Сохранить </button>
+        </div>
+      </form>
+    </div>
+  </check-list-modal>
+
+</div>

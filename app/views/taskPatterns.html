@@ -1,0 +1,212 @@
+<div class="Cheme-task section">
+  <h1>Схема задач</h1>
+  <div class="line-left"><a ng-click="self.createContekst(token, org)" class="admin-link">Создать</a><a class="admin-link">Группировать по ролям</a><a href="" class="admin-link">Группировать по чеклистам</a>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="" /><span>Показать неактивные.</span>
+      </label>
+    </div>
+  </div>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Наименование</th>
+        <th>Активен</th>
+        <th>Редактировать</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="task in contecst">
+        <td> #id {{task.id}}
+          <p ng-model="task.id" ng-model="task.name">
+            {{task.name}}
+          </p>
+        </td>
+        <td>
+          <p>repeatEveryDay</p>
+          <input type="checkbox" ng-model='task.repeatEveryDay' />
+          <p>repeatOnMonday</p>
+          <input type="checkbox" ng-model="task.repeatOnMonday">
+          <p>repeatOnTuesday</p>
+          <input type="checkbox" ng-model="task.repeatOnTuesday">
+          <p>
+            repeatOnWednesday
+          </p>
+          <input type="checkbox" ng-model="task.repeatOnWednesday">
+          <p>
+            repeatOnThursday
+          </p>
+          <input type="checkbox" ng-model="task.repeatOnThursday">
+          <p>
+            repeatOnFriday
+          </p>
+          <input type="checkbox" ng-model="task.repeatOnFriday">
+          <p>
+            repeatOnSaturday
+          </p>
+          <input type="checkbox" ng-model="task.repeatOnSaturday">
+          <p>
+            repeatOnSunday
+          </p>
+          <input type="checkbox" ng-model="task.repeatOnSunday">
+          </p>
+        </td>
+        <td> <a href="" class="admin-link" ng-click="self.changeContext(item.id, item.name, token, org,item.repeatEveryDay,item.repeatOnFriday,item.repeatOnMonday,item.repeatOnSaturday, item.repeatOnSunday,item.repeatOnThursday,item.repeatOnTuesday,item.repeatOnWednesday)">Редактировать</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <task-paterns-modal show='self.modalShown' top='300%' position="absolute">
+    <div class="Cheme-edit section">
+      <h1>Редактирование задачи</h1>
+      <form action="" method="POST" role="form" class="form-horizontal">
+        <div class="form-group">
+          <label for="" class="col-sm-2 control-label">Наименование</label>
+          <div class="col-sm-10">
+            <input type="" placeholder="Открытие смены" class="form-control" ng-model="self.name" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-sm-2 control-label">Описание</label>
+          <div class="col-sm-10">
+            <textarea name="" cols="30" rows="10" type="" ng-model="self.discrabe" placeholder="Открытие смены" class="form-control"></textarea>
+          </div>
+        </div>
+        <div class="Cheme-edit-prop border-form">
+          <!-- <h3>Свойства</h3>
+          <div class="form-group">
+            <label for="" class="col-sm-2 control-label">Чек-лист</label>
+            <div class="col-sm-10">
+              <select class="form-control">
+                <option>Lorem</option>
+                <option>Lorem</option>
+                <option>Lorem</option>
+              </select>
+            </div>
+          </div> -->
+          <!-- <div class="form-group">
+            <label for="" class="col-sm-2 control-label">Роль</label>
+            <div class="col-sm-10">
+              <select class="form-control">
+                <option>Lorem</option>
+                <option>Lorem</option>
+                <option>Lorem</option>
+              </select>
+            </div>
+          </div> -->
+          <!-- <div class="form-group">
+            <label for="" class="col-sm-2 control-label">Контекст</label>
+            <div class="col-sm-10">
+              <select class="form-control">
+                <option>Lorem</option>
+                <option>Lorem</option>
+                <option>Lorem</option>
+              </select>
+            </div>
+          </div> -->
+          <div class="line-left">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="" /><span>Задавать вопрос при закрытие задачи</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group m20_0">
+            <label for="" class="col-sm-2 control-label">Вопрос</label>
+            <div class="col-sm-10">
+              <input type="" placeholder="Открытие смены" ng-model="self.question" class="form-control" />
+            </div>
+          </div>
+        </div>
+        <div class="Cheme-edit-time border-form">
+          <h3>Время исполнения и повтор</h3>
+          <form action="" method="POST" role="form" class="form-horizontal">
+            <div class="form-group">
+              <div class="checkbox col-sm-6">
+                <label>
+                  <input type="checkbox" value="" /><span>Время начала исполнения</span>
+                </label>
+              </div>
+              <div id="date-Cheme-edit-time-start" class="input-group date col-sm-6">
+                <input type="text" class="form-control" ng-model="self.startDate"/><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="checkbox col-sm-6">
+                <label>
+                  <input type="checkbox" value=""  /><span>Время окончания исполнения</span>
+                </label>
+              </div>
+              <div id="date-Cheme-edit-time-end" class="input-group date col-sm-6">
+                <input type="text" class="form-control"ng-model="self.endDate" /><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+              </div>
+            </div>
+            <div class="line-left">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="" ng-model="self.repeatEveryDay" /><span>Повторять задачу ежедневно</span>
+                </label>
+              </div>
+            </div>
+            <div class="weekdays">
+              <div class="line-left"></div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="" ng-model="self.repeatMonday" /><span>Понедельник</span>
+                </label>
+              </div>
+              <div class="line-left"></div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="self.repeatOnTuesday"><span>Вторник</span>
+                </label>
+              </div>
+              <div class="line-left"></div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="self.repeatOnWednesday"><span>Среда</span>
+                </label>
+              </div>
+              <div class="line-left"></div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="task.repeatOnThursday"><span>Четверг</span>
+                </label>
+              </div>
+              <div class="line-left"></div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="task.repeatOnFriday">
+                  <span>Пятница</span>
+                </label>
+              </div>
+              <div class="line-left"></div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="task.repeatOnSaturday"><span>Суббота</span>
+                </label>
+              </div>
+              <div class="line-left"></div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="task.repeatOnSunday">
+                  <span>Воскресение</span>
+                </label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </form>
+      <div class="line-right">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="" /><span>Активны</span>
+          </label>
+        </div>
+      </div>
+      <div class="line-right">
+        <button type="button" class="btn btn-default" ng-click="self.changeContext()">Отменить </button>
+        <button type="button" class="btn btn-default" ng-click="self.toggleModal()">Сохранить </button>
+      </div>
+    </div>
+    </self-paterns-modal>
+</div>
