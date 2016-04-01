@@ -1,6 +1,6 @@
 <div class="Check-list section">
   <h1>Чеклисты</h1>
-  <div class="line-left"><a ng-click="self.createContekst(id, name , active, token, org)" class="admin-link">Создать</a>
+  <div class="line-left"><a ng-click="self.createContekst(token, org)" class="admin-link">Создать</a>
     <div class="checkbox">
       <label>
         <input type="checkbox" value="" /><span>Показать неактивные.</span>
@@ -21,7 +21,7 @@
         <td>
           <input type="checkbox" value="" ng-model="item.active">
         </td>
-        <td> <a class="admin-link" ng-click="self.toggleModal(item.id , item.name , item.active)">Редактировать</a></td>
+        <td> <a class="admin-link" ng-click="self.changeContext(item.id , item.name , item.active)">Редактировать</a></td>
       </tr>
     </tbody>
   </table>

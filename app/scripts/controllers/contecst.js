@@ -15,7 +15,7 @@ angular.module('amdminsApp')
     self.toggleModal = function() {
       self.modalShown = !self.modalShown;
     };
-    self.createContekst = function(id, name , active,org, token){
+    self.createContekst = function(id, name , active, org, token){
       self.name = name;
       self.id = id;
       self.ative = active;
